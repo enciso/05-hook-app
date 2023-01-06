@@ -1,7 +1,7 @@
 
 const initialState = [{
     id: 1,
-    todo: 'Recolectar culos',
+    todo: 'Recolectar canicas',
     done: false,
 }];
 
@@ -19,7 +19,7 @@ let todos = todoReducer();
 
 const newTodo = {
     id: 2,
-    todo: 'Recolectar tetas',
+    todo: 'Recolectar monedas',
     done: false
 }
 
