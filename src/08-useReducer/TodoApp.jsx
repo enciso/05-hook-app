@@ -31,21 +31,14 @@ export const TodoApp = () => {
 
             <div className="row">
                 <div className="col-5">
-
-                    {/* TodoList */}
                     <TodoList todos={ todos } />
-                    {/* TodoList */}
                 </div>
 
                 <div className="col-5">
                     <h4>Agregar TODO</h4>
                     <hr/>
 
-                    {/* TodoAdd onNewTodo( todo ) */}
-                    {/* { id: new Date, description: input, done:false } */}
-                    {/* TODO: Falto utilizar el handleNewTodo */}
-                    <TodoAdd />
-                    {/* TodoAdd */}
+                    <TodoAdd onNewTodo={ handleNewTodo } />
                 </div>
             </div>
         </>

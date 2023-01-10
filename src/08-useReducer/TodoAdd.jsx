@@ -1,23 +1,27 @@
-import {useRef} from "react";
 import {useForm} from "../hooks/index.js";
 
-export const TodoAdd = () => {
+export const TodoAdd = ({ onNewTodo }) => {
 
-    const { formState, onInputChange, description } = useForm({
-        id: new Date(),
-        description: '',
-        done: false
+    const { onResetForm, onInputChange, description } = useForm({
+        description: ''
     });
 
-    const onNewTodo = (event) => {
-
+    const onFormSubmit = ( event ) => {
         event.preventDefault();
-        console.log(formState);
 
+        if (description.length <= 1) return;
+
+        const newTodo = {
+            id: new Date().getTime(),
+            done: false,
+            description: description
+        }
+
+        onNewTodo(newTodo);
     }
 
     return (
-        <form>
+        <form onSubmit={ onFormSubmit }>
             <input
                 type="text"
                 placeholder="¿Qué hay que hacer?"
