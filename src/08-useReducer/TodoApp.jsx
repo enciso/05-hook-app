@@ -31,6 +31,13 @@ export const TodoApp = () => {
 
     }
 
+    const handleRemoveTodo = ( id ) => {
+        dispatch({
+            type: '[TODO] Remove Todo',
+            payload: id
+        });
+    }
+
     return (
         <>
             <h1>TodoApp (10), <small>pendientes: 2</small></h1>
@@ -38,7 +45,7 @@ export const TodoApp = () => {
 
             <div className="row">
                 <div className="col-5">
-                    <TodoList todos={ todos } />
+                    <TodoList todos={ todos } onDeleteTodo={ handleRemoveTodo } />
                 </div>
 
                 <div className="col-5">
