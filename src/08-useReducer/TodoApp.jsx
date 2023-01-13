@@ -7,7 +7,7 @@ export const TodoApp = () => {
 
     // useTodo
     // todos,
-    const { todos, handleRemoveTodo, handleToggleTodo, handleNewTodo } = useTodo();
+    const { todos, todosCount, pendingTodosCount, handleRemoveTodo, handleToggleTodo, handleNewTodo } = useTodo();
 
     useEffect(() => {
         localStorage.setItem('todos', JSON.stringify( todos ));
@@ -15,7 +15,7 @@ export const TodoApp = () => {
 
     return (
         <>
-            <h1>TodoApp ({ todos.length }), <small>pendientes: { todos.filter( todo => !todo.done ).length }</small></h1>
+            <h1>TodoApp ({ todosCount }), <small>pendientes: { pendingTodosCount }</small></h1>
             <hr/>
 
             <div className="row">
