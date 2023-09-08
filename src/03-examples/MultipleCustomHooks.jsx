@@ -4,7 +4,7 @@ import { LoadingQuote, Quote } from "./";
 export const MultipleCustomHooks = () => {
     const { counter, increment } = useCounter(1);
     const { data, isLoading, hasError } = useFetch(`https://dummyjson.com/quotes/${counter}`);
-    const { author, quote } = !!data && data;
+    const { author, quote } = !!data && data[0];
 
     return (
         <>
