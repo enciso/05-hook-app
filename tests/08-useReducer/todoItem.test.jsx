@@ -50,7 +50,7 @@ describe('Pruebas con <TodoItem />', () => {
 
     });
 
-    test('debe de mostrar el ToggleTodo cuando hace click', () => {
+    test('span debe de mostrar el ToggleTodo cuando hace click', () => {
 
         render(
             <TodoItem
@@ -81,6 +81,23 @@ describe('Pruebas con <TodoItem />', () => {
         fireEvent.click( spanElement );
 
         expect( onToggleTodoMock ).toHaveBeenCalledWith(todo.id);
+
+    });
+
+    test('debe de mostrar el DeleteTodo', () => {
+
+        render(
+            <TodoItem
+                item={ todo }
+                onToggleTodo={ onToggleTodoMock }
+                onDeleteTodo={ onDeleteTodoMock }
+            />
+        );
+
+        const deleteButton = screen.getByRole('button');
+        fireEvent.click( deleteButton );
+
+        expect( onDeleteTodoMock ).toHaveBeenCalledWith(todo.id);
 
     });
 
